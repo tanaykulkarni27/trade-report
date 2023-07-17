@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 const port = 3000;
-const dbFile = 'database.db'; // Replace with the path to your SQLite database file
+const dbFile = dbFile = path.resolve(__dirname, dbFile); // Replace with the path to your SQLite database file
 
 app.use('', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
