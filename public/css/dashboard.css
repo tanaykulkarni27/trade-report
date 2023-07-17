@@ -1,0 +1,70 @@
+/* Custom Colors */
+:root {
+    --primary-color: #1f8bff;
+    --secondary-color: #ff3d71;
+  }
+  
+  /* Custom Fonts */
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Stock List Styles */
+  .stock-list {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  
+  .stock-list .list-group-item {
+    cursor: pointer;
+  }
+
+  /* Stock List Styles */
+    .stock-list ul {
+        max-height: calc(100vh - 220px);
+        overflow-y: auto;
+    }
+  
+    .trade-form-wrapper {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .stock-list-scroll {
+        max-height: 300px; /* Adjust the maximum height as per your requirement */
+        overflow-y: auto;
+      }      
+    
+  /* Charts Styles */
+  .charts {
+    height: 400px;
+  }
+  
+  /* Toggle Button Styles */
+  .toggle-button {
+    display: none;
+    margin-bottom: 16px;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 991.98px) {
+    .stock-list {
+      max-height: unset;
+      overflow-y: unset;
+    }
+    
+    .toggle-button {
+      display: block;
+    }
+    
+    .collapsed .stock-list {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 767.98px) {
+    .charts {
+      height: 300px;
+    }
+  }
+  
