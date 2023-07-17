@@ -163,7 +163,10 @@ app.get('/report/:trade_id',(req,res)=>{
 app.get('',(req,res)=>{
     res.sendFile(__dirname + '/html/dashboard.html')
 })
+
+module.exports = app;
+
 // Start the server
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server listening on port ${port}`);
+// });
