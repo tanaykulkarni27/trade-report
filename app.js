@@ -2,10 +2,12 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs')
 
 const app = express();
 const port = 3000;
-const dbFile = dbFile = path.resolve(__dirname, dbFile); // Replace with the path to your SQLite database file
+var dbFile = 'database.db'; // Replace with the path to your SQLite database file
+dbFile = path.resolve(__dirname, dbFile)
 
 app.use('', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -163,6 +165,19 @@ app.get('/report/:trade_id',(req,res)=>{
 app.get('',(req,res)=>{
     res.sendFile(__dirname + '/html/dashboard.html')
 })
+
+// download database
+app.get('/download', (req, res) => {
+    const filePath = path.resolve(__dirname, 'database.db');
+  
+    // Set the response headers
+    res.setHeader('Content-Type', 'application/octet-stream');
+    res.setHeader('Content-Disposition', `attachment; filename=${dbFile}`);
+  
+    // Read the file and stream it to the response
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.pipe(res);
+  });
 
 module.exports = app;
 
